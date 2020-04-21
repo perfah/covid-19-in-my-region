@@ -1,4 +1,4 @@
-from covid19 import app
+from covid_19_in_my_region import app
 from flask import render_template
 
 @app.route('/')

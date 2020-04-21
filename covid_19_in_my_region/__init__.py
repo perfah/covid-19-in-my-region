@@ -2,4 +2,4 @@ from flask import Flask
 app = Flask(__name__)
 
 
-import covid19.routes
+import covid_19_in_my_region.routes
