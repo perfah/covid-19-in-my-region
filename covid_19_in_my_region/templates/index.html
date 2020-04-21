@@ -3,18 +3,33 @@
   <head>
     <meta charset="UTF-8">
     <title>Covid-19 Sweden</title>
+
+    <!-- JavaScript -->
     <script type="text/javascript" src="{{ url_for('static', filename='./js/plotly-min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='./js/index.js') }}"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='./style/style.css') }}">
+
   </head>
   <body>
-    <div id="tester" style="width:600px;height:250px;"></div>
-    <script>
-      TESTER = document.getElementById('tester');
-      Plotly.newPlot( TESTER, [{
-        x: [1, 2, 3, 4, 5],
-        y: [1, 2, 4, 8, 16] }], {
-          margin: { t: 0 }
-        }
-      );
-    </script>
+    <div class="wrapper">
+      <div class="info_div">
+        <h1 style="color:white;text-align:center">Covid-19 By County</h1>
+        <div style="text-align:center">
+          <p style="color:white;">Please select a County to display new infections/day</p>
+          <form id="county-form" onsubmit="request_data();return false" style="margin:auto">
+            <select id="county-select">
+              <option value="Dummy1">Dummy1</option>
+              <option value="Dummy2">Dummy2</option>
+            </select>
+            <input type="submit" value="Fetch Data">
+          </form>
+        </div>
+      </div>
+      <div class="graph_wrapper">
+        <div id="tester" class="graph" style=></div>
+      </div>
+    </div>
   </body>
 </html>
