@@ -18,7 +18,9 @@ def latest_csv_from_dgg():
     if up_to_date:
         print("Using cached data for today's date: " + str(today))
     else:
-        os.remove(filename)
+        if os.path.exists(filename):
+            os.remove(filename)
+
         wget.download("https://free.entryscape.com/store/360/resource/15", filename)
         print("Downloaded new data for today's date: " + str(today))
 
