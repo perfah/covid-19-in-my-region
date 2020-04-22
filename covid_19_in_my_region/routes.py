@@ -20,8 +20,6 @@ def fetch_data():
     regions = backend.get_regions()
     x, y = regions[region]
 
-    y_acc = []
-    for i in range(len(y)):
-        y_acc.append((y_acc[i-1] if i > 0 else 0) + y[i])
+    y_acc = backend.calc_accumulated(y)
 
     return jsonify({"region": region, "x": x, "y": y, "y_acc": y_acc})

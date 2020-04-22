@@ -67,3 +67,11 @@ def construct_regions(csv_file):
                 y.append(int(novel_regional_cases[i]))
 
     return regions
+
+
+def calc_accumulated(x):
+    y = []
+    for i in range(len(x)):
+        y.append((y[i-1] if i > 0 else 0) + x[i])
+
+    return y
