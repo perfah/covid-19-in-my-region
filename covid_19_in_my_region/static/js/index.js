@@ -1,6 +1,5 @@
 function request_data() {
   var sel = document.getElementById('county-select').value;
-  console.log(sel);
 
   fetch('/fetch_data?region=' + sel, {
   method: 'GET',
@@ -9,13 +8,24 @@ function request_data() {
   }
   }).then(function(response){
     response.json().then(function(data){
-      TESTER = document.getElementById('tester');
-      Plotly.newPlot( TESTER, [{
-        x: [1, 2, 3, 4, 5],
-        y: [1, 2, 4, 8, 16] }], {
-          margin: { t: 0 }
+      if(data.region == sel && (data.x.length == data.y.length)) {
+        graph = document.getElementById('graph');
+        Plotly.newPlot( graph, [{
+          x: data.x,
+          y: data.y ,
+          type: 'scatter'
+        }]);
+      } else {
+        if(data.region != sel) {
+          alert("Internal Server Error, Region mismatch")
         }
-      );
+        else if((data.x.length != data.y.length)) {
+          alert("Internal Server Error, Data mismatch")
+        }
+        else {
+          alert("Internal Server Error, Unknown cause")
+        }
+      }
     })
   })
 
