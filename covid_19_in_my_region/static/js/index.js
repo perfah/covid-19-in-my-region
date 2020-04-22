@@ -11,12 +11,31 @@ function request_data() {
   }).then(function(response){
     response.json().then(function(data){
       if(data.region == sel && (data.x.length == data.y.length)) {
-        graph = document.getElementById('graph');
-        Plotly.newPlot( graph, [{
-          x: data.x,
-          y: data.y ,
-          type: 'scatter'
-        }]);
+        var graph = document.getElementById('graph');
+        if(acc) {
+          var trace1 = {
+            x: data.x,
+            y: data.y,
+            name: "New Cases",
+            type: 'scatter'
+          };
+          var trace2 = {
+            x: data.x,
+            y: data.y_acc,
+            name: "Accumulated Cases",
+            type: 'scatter'
+          };
+          var data = [trace1, trace2];
+
+          Plotly.newPlot(graph, data);
+        }
+        else {
+          Plotly.newPlot( graph, [{
+            x: data.x,
+            y: data.y ,
+            type: 'scatter'
+          }]);
+        }
       } else {
         if(data.region != sel) {
           alert("Internal Server Error, Region mismatch")
