@@ -17,7 +17,7 @@
       <div class="info_div">
         <h1 style="color:white;text-align:center">Covid-19 By County</h1>
         <div style="text-align:center">
-          <p style="color:white;">Please select a County to display new infections/day</p>
+          <p style="color:white;">Please select a region to display new infections/day</p>
           <form id="county-form" onsubmit="request_data();return false" style="margin:auto;">
             <select id="county-select">
               <option value="blekinge">Blekinge</option>
@@ -43,7 +43,7 @@
               <option value="östergötland">Östergötland</option>
             </select>
             <div class="options_div">
-              <input type="checkbox" id="acc" name="acc">
+              <input type="checkbox" id="acc" name="acc" checked>
               <label for="acc" style="color:white;">Accumulated</label>
             </div>
             <input type="submit" value="Fetch Data">

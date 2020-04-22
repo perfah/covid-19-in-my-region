@@ -2,6 +2,13 @@ function request_data() {
   var sel = document.getElementById('county-select').value;
   var acc = document.getElementById('acc').checked;
 
+  var config = {responsive: true};
+
+
+  var layout = {
+    autosize: true
+  };
+
 
   fetch('/fetch_data?region=' + sel, {
   method: 'GET',
@@ -27,14 +34,14 @@ function request_data() {
           };
           var data = [trace1, trace2];
 
-          Plotly.newPlot(graph, data);
+          Plotly.newPlot(graph, data, layout, config);
         }
         else {
           Plotly.newPlot( graph, [{
             x: data.x,
             y: data.y ,
             type: 'scatter'
-          }]);
+          }], layout, config);
         }
       } else {
         if(data.region != sel) {

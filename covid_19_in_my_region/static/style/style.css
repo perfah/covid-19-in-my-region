@@ -6,8 +6,8 @@ body {
 .wrapper {
   background-color: blue;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: minmax(200px, 1fr) 2fr;
+  grid-template-columns: minmax(600px, auto);
+  grid-template-rows: minmax(200px, 1fr) minmax(400px, 2fr);
   height: 100vh;
   width: 100vw;
   margin: 0px;
@@ -35,8 +35,8 @@ body {
 
 .graph {
   align-self: center;
-  height: auto;
-  width: auto;
+  height: 100%;
+  width: 100vw;
 }
 
 .options_div {
