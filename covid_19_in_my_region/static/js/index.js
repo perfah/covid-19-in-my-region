@@ -1,7 +1,9 @@
 function request_data() {
   var sel = document.getElementById('county-select').value;
+  var acc = document.getElementById('acc').checked;
 
-  fetch('/fetch_data?region=' + sel, {
+
+  fetch('/fetch_data?region=' + sel + '&acc='+ acc, {
   method: 'GET',
   headers:{
     'Content-Type': 'application/json'
