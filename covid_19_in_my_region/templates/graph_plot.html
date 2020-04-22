@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Covid-19 Sweden</title>
+    <script type="text/javascript" src="{{ url_for('static', filename='./js/plotly-min.js') }}"></script>
+  </head>
+  <body>
+    <div id="tester" style="width:1800px;height:650px;"></div>
+    <script>
+      var data = [{
+        x: {{ X | safe }},
+        y: {{ Y | safe }},
+        type: 'scatter'
+      }];
+
+      TESTER = document.getElementById('tester');
+      Plotly.newPlot( TESTER, data);
+    </script>
+  </body>
+</html>

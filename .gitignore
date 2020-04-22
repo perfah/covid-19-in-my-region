@@ -132,3 +132,4 @@ dmypy.json
 #MacOs
 .DS_Store
 
+dgg_data.csv
