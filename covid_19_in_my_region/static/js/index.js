@@ -3,7 +3,7 @@ function request_data() {
   var acc = document.getElementById('acc').checked;
 
 
-  fetch('/fetch_data?region=' + sel + '&acc='+ acc, {
+  fetch('/fetch_data?region=' + sel, {
   method: 'GET',
   headers:{
     'Content-Type': 'application/json'

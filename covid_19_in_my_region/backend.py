@@ -5,6 +5,17 @@ from datetime import datetime as dt
 import csv23
 from covid_19_in_my_region.regional_plot import RegionalPlot
 
+from flask import g
+
+
+def get_regions():
+    csv_file, updated = latest_csv_from_dgg()
+
+    if updated or not hasattr(g, 'cached_regions'):
+        g.cached_regions = construct_regions(csv_file)
+
+    return g.cached_regions
+
 
 def latest_csv_from_dgg():
     filename = "dgg_data.csv"
@@ -16,15 +27,16 @@ def latest_csv_from_dgg():
         up_to_date = False
 
     if up_to_date:
-        print("Using cached data for today's date: " + str(today))
+        print("Using cached csv-data for today's date: " + str(today))
     else:
         if os.path.exists(filename):
             os.remove(filename)
 
+        print("Downloading new data for today's date: " + str(today) + "...")
         wget.download("https://free.entryscape.com/store/360/resource/15", filename)
-        print("Downloaded new data for today's date: " + str(today))
+        print("\nDone!")
 
-    return filename
+    return filename, up_to_date
 
 
 def construct_regions(csv_file):
@@ -37,7 +49,7 @@ def construct_regions(csv_file):
 
     regions = dict()
     for region_name in available_regions:
-        regions[region_name] = RegionalPlot()
+        regions[region_name] = [], []
 
     with csv23.open_csv(csv_file) as reader:
         # Iterate the current row/day:
@@ -49,7 +61,17 @@ def construct_regions(csv_file):
             # acc_iva_cases = row[26]
             date = row[27]
 
-            for i, region_name in enumerate(regions):
-                regions[region_name].insert_data_point("\"" + date + " 00:00:00" + "\"", novel_regional_cases[i])
+            for i, reg in enumerate(regions):
+                x, y = regions[reg]
+                x.append(str(date + " 00:00:00"))
+                y.append(int(novel_regional_cases[i]))
 
     return regions
+
+
+def calc_accumulated(x):
+    y = []
+    for i in range(len(x)):
+        y.append((y[i-1] if i > 0 else 0) + x[i])
+
+    return y
