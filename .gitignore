@@ -133,3 +133,5 @@ dmypy.json
 .DS_Store
 
 dgg_data.csv
+
+.idea
