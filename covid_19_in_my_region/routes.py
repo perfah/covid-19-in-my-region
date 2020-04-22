@@ -16,16 +16,12 @@ def index():
 def fetch_data():
     # Request args:
     region = request.args.get('region').replace("'", "")
-    accumulate = request.args.get('acc')
 
     regions = backend.get_regions()
     x, y = regions[region]
 
-    if accumulate == 'true':
-        y_mod = []
-        for i in range(len(y)):
-            y_mod.append((y_mod[i-1] if i > 0 else 0) + y[i])
+    y_acc = []
+    for i in range(len(y)):
+        y_acc.append((y_acc[i-1] if i > 0 else 0) + y[i])
 
-        return jsonify({"region": region, "x": x, "y": y_mod, "acc": "true"})
-    else:
-        return jsonify({"region": region, "x": x, "y": y, "acc": "false"})
+    return jsonify({"region": region, "x": x, "y": y, "y_acc": y_acc})
