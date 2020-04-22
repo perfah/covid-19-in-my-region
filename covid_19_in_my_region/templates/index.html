@@ -18,17 +18,40 @@
         <h1 style="color:white;text-align:center">Covid-19 By County</h1>
         <div style="text-align:center">
           <p style="color:white;">Please select a County to display new infections/day</p>
-          <form id="county-form" onsubmit="request_data();return false" style="margin:auto">
+          <form id="county-form" onsubmit="request_data();return false" style="margin:auto;">
             <select id="county-select">
-              <option value="Dummy1">Dummy1</option>
-              <option value="Dummy2">Dummy2</option>
+              <option value="blekinge">Blekinge</option>
+              <option value="dalarna">Dalarna</option>
+              <option value="gotland">Gotland</option>
+              <option value="gävleborg">Gävleborg</option>
+              <option value="halland">Halland</option>
+              <option value="jämtland">Jämtland</option>
+              <option value="jönköping">Jönköping</option>
+              <option value="kalmar">Kalmar</option>
+              <option value="kronoberg">Kronoberg</option>
+              <option value="norrbotten">Norrbotten</option>
+              <option value="skåne">Skåne</option>
+              <option value="stockholm">Stockholm</option>
+              <option value="södermanland">Södermanland</option>
+              <option value="uppsala">Uppsala</option>
+              <option value="värmland">Värmland</option>
+              <option value="västerbotten">Västerbotten</option>
+              <option value="västernorrland">Västernorrland</option>
+              <option value="västmanland">Västmanland</option>
+              <option value="västra_götaland">Västra_götaland</option>
+              <option value="örebro">Örebro</option>
+              <option value="östergötland">Östergötland</option>
             </select>
+            <div class="options_div">
+              <input type="checkbox" id="acc" name="acc">
+              <label for="acc" style="color:white;">Accumulated</label>
+            </div>
             <input type="submit" value="Fetch Data">
           </form>
         </div>
       </div>
       <div class="graph_wrapper">
-        <div id="tester" class="graph" style=></div>
+        <div id="graph" class="graph" style=></div>
       </div>
     </div>
   </body>

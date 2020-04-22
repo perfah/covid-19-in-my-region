@@ -38,3 +38,9 @@ body {
   height: auto;
   width: auto;
 }
+
+.options_div {
+  display: inline;
+  margin-left: 10px;
+  margin-right: 10px;
+}
