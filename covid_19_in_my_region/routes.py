@@ -15,7 +15,7 @@ def index():
 @app.route("/fetch_data", methods=['GET'])
 def fetch_data():
     # Request args:
-    region = request.args.get('region')
+    region = request.args.get('region').replace("'", "")
     accumulate = request.args.get('acc')
 
     regions = backend.get_regions()
