@@ -11,6 +11,7 @@ To start the webserver simply the following commands in a terminal:
 
     $ git clone https://github.com/perfah/covid-19-in-my-region
     $ cd covid-19-in-my-region
+    $ pip3 install -r requirements.txt
     $ python3 run.py
     
 To test the webserver you can additionally run (in the same directory):
