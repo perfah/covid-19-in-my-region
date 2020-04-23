@@ -7,6 +7,12 @@ from covid_19_in_my_region.regional_plot import RegionalPlot
 
 from flask import g
 
+available_regions = [
+    'blekinge', 'dalarna', 'gotland', 'gävleborg', 'halland', 'jämtland', 'jönköping', 'kalmar', 'kronoberg',
+    'norrbotten', 'skåne', 'stockholm', 'södermanland', 'uppsala', 'värmland', 'västerbotten', 'västernorrland',
+    'västmanland', 'västra_götaland', 'örebro', 'östergötland'
+]
+
 
 def get_regions():
     csv_file, updated = latest_csv_from_dgg()
@@ -40,13 +46,6 @@ def latest_csv_from_dgg():
 
 
 def construct_regions(csv_file):
-    # Last column:
-    available_regions = [
-        'blekinge', 'dalarna', 'gotland', 'gävleborg', 'halland', 'jämtland', 'jönköping', 'kalmar', 'kronoberg',
-        'norrbotten', 'skåne', 'stockholm', 'södermanland', 'uppsala', 'värmland', 'västerbotten', 'västernorrland',
-        'västmanland', 'västra_götaland', 'örebro', 'östergötland'
-    ]
-
     regions = dict()
     for region_name in available_regions:
         regions[region_name] = [], []
