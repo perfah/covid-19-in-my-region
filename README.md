@@ -7,7 +7,7 @@ A webserver able to plot the development of covid-19 in Swedish regions on a web
 
 ## Usage
 
-To start the webserver simply the following commands in a terminal:
+To start the webserver simply run the following commands in a terminal:
 
     $ git clone https://github.com/perfah/covid-19-in-my-region
     $ cd covid-19-in-my-region
@@ -28,6 +28,6 @@ The webserver supports the following Swedish regions:
     
 ## Data source
 
-The data we use is automatically retrieved from [DIGG - Antal fall av covid-19 i Sverige per dag och region](https://www.dataportal.se/sv/datasets/525_1424/antal-fall-av-covid-19-i-sverige-per-dag-och-region)
+The data we use is automatically retrieved from [DIGG - Antal fall av covid-19 i Sverige per dag och region](https://www.dataportal.se/sv/datasets/525_1424/antal-fall-av-covid-19-i-sverige-per-dag-och-region).
 
     
