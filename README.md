@@ -5,6 +5,10 @@ A webserver able to plot the development of covid-19 in Swedish regions on a web
 <img src="https://i.imgur.com/l6nC3wc.png" alt="drawing" width="500"/>
 </p>
 
+## Prerequisites
+
+Packages `python` and `python-pip` (version 3) need to be installed on your system before continuing (may be named slightly differently depending on your package manager).
+
 ## Usage
 
 To start the webserver simply run the following commands in a terminal:
