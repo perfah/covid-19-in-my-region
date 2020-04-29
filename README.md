@@ -1,5 +1,5 @@
 # covid-19-in-my-region [![Build Status](https://travis-ci.com/perfah/covid-19-in-my-region.svg?branch=master)](https://travis-ci.com/perfah/covid-19-in-my-region)
-A webserver able to plot the development of covid-19 in Swedish regions on a website. The server is written in Python and uses the web framework 'Flask'.
+A webserver able to plot the statistical development of covid-19 in Swedish regions on a website. The server is written in Python and uses the web framework 'Flask'. The website hosted can be helpful for seeing trends in the number of confirmed cases at regional level. You could also compare different regions by looking at their generated graphs. Note that the accuracy at regional level can be low.
 
 <p align="center">
 <img src="https://i.imgur.com/l6nC3wc.png" alt="drawing" width="500"/>
